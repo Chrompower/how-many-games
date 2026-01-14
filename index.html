@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MMR Games Needed</title>
+  <title>How many Games do you need</title>
   <style>
     body{
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -16,12 +16,12 @@
       color:#000;
     }
     .wrap{
-      width:320px;
+      width:360px;
       text-align:center;
     }
     h1{
-      font-size:18px;
-      margin:0 0 20px;
+      font-size:20px;
+      margin:0 0 22px;
     }
     .row{
       margin:12px 0;
@@ -33,21 +33,21 @@
     }
     input{
       width:100%;
-      padding:6px 8px;
-      font-size:14px;
+      padding:10px 12px;
+      font-size:16px;
       border:1px solid #999;
       border-radius:6px;
       text-align:center;
     }
     .result{
-      margin-top:20px;
+      margin-top:34px;
     }
     .result-label{
-      font-size:13px;
+      font-size:14px;
       color:#444;
     }
     .result-value{
-      font-size:28px;
+      font-size:34px;
       font-weight:700;
       margin-top:4px;
     }
@@ -55,7 +55,7 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>MMR Games Needed</h1>
+    <h1>How many Games do you need</h1>
 
     <div class="row">
       <label for="current">Your MMR</label>
@@ -110,9 +110,17 @@
         return;
       }
 
-      // Clamp winrate to 50–100
-      winrate = clamp(winrate, 50, 100);
-      if (Number(winEl.value) !== winrate) winEl.value = String(winrate);
+      // Nur clampen, wenn der Nutzer "fertig" ist (also >= 50 ODER Feld leer war)
+      // Dadurch kann man z.B. erst "6" und dann "65" tippen
+      if (winrate > 100){
+        winrate = 100;
+        winEl.value = "100";
+      }
+
+      if (winrate < 50 && winEl.value.length >= 2){
+        winrate = 50;
+        winEl.value = "50";
+      }
 
       if (current >= target){
         gamesEl.textContent = "0";
