@@ -103,22 +103,23 @@
 
     h1{
       margin: 0 0 18px;
-      font-size: 28px;
-      font-weight: 800;
+      font-size: 30px;
+      font-weight: 850;
       letter-spacing: -0.03em;
       text-align: center;
       white-space: nowrap;
+      text-shadow: 0 18px 55px rgba(0,0,0,0.45);
     }
 
-    .title-wrap{
-      position: absolute;
-      top: 48px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
+    .page{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap: 14px;
     }
 
+    
     .row{ margin: 14px 0; }
 
     label{
@@ -196,10 +197,9 @@
   </style>
 </head>
 <body>
-  <div class="title-wrap">
+  <div class="page">
     <h1>How many Games do you need?</h1>
-  </div>
-  <div class="wrap">
+    <div class="wrap">
 
     <div class="row">
       <label for="current">Your MMR</label>
@@ -220,6 +220,7 @@
       <div class="result-label">Games Needed</div>
       <div class="result-value" id="games">—</div>
     </div>
+      </div>
   </div>
 
   <script>
