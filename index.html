@@ -103,7 +103,8 @@
     }
 
     h1{
-      margin: 0 0 22px;
+      margin-top: 22px;
+      margin-bottom: 30px;
       font-size: 20px;
       font-weight: 750;
       letter-spacing: -0.02em;
@@ -192,16 +193,16 @@
 
     <div class="row">
       <label for="current">Your MMR</label>
-      <input id="current" type="number" min="0" step="1" />
+      <input id="current" type="number" min="0" step="1" value="1000" />
     </div>
 
     <div class="row">
       <label for="target">Goal MMR</label>
-      <input id="target" type="number" min="0" step="1" />
+      <input id="target" type="number" min="0" step="1" value="2000" />
     </div>
 
     <div class="row">
-      <label for="winrate">Winrate</label>
+      <label for="winrate">Winrate (%)</label>
       <input id="winrate" type="number" step="0.1" value="55" />
     </div>
 
@@ -278,5 +279,6 @@
   </script>
 </body>
 </html>
+
 
 
